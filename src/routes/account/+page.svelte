@@ -7,7 +7,7 @@
 	export let data
 	export let form
 
-	// const { session, supabase, profile } = data
+	let { session, supabase, profile } = data
 	$: ({ session, supabase, profile } = data)
 
 	let profileForm: HTMLFormElement
@@ -31,6 +31,8 @@
 			update()
 		}
 	}
+
+	
 </script>
 
 <div class="form-widget">
@@ -49,10 +51,10 @@
 			profileForm.requestSubmit();
 			}}
 		/>
-		
+
 		<div>
 			<label for="email">Email</label>
-			<input id="email" type="text" value={session.user.email} disabled />
+			<input id="email" type="email" value={session.user.email} disabled />
 		</div>
 
 		<div>
